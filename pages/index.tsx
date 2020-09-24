@@ -4,22 +4,27 @@ import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
+import { GetStaticProps } from 'next';
 
-export default function Home({ allPostsData }) {
+export default function Home({
+  allPostsData,
+}: {
+  allPostsData: {
+    date: string;
+    title: string;
+    id: string;
+  }[];
+}) {
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
+        <p>[Your Self Introduction]</p>
         <p>
-          My name is Ali Ahsan Saeed. I have just started to learn about web
-          development. It is very exciting to learn about these things because
-          there are just so many things you need to learn and everything you
-          learn is somewhat concrete, that is to say that changes or code added
-          shows a visible difference. This is certainly fun because you can see
-          the results of your work almost immediately. That keeps you motivated
-          throughout the learning process. Happy Learning guys!.
+          (This is a sample website - you’ll be building a site like this in{' '}
+          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
@@ -42,11 +47,11 @@ export default function Home({ allPostsData }) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
   return {
     props: {
       allPostsData,
     },
   };
-}
+};
