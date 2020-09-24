@@ -26,3 +26,14 @@ img {
   max-width: 100%;
   display: block;
 }
+
+h1 {
+  font-family: Anton;
+}
+
+@font-face {
+  font-family: 'Anton';
+  src: url('/fonts/Anton.ttf');
+  font-style: normal;
+  font-display: swap;
+}

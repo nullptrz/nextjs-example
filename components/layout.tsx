@@ -16,6 +16,12 @@ export default function Layout({
   return (
     <div className={styles.container}>
       <Head>
+        <link
+          rel="preload"
+          href="/fonts/Anton/Anton.ttf"
+          as="font"
+          crossOrigin=""
+        />
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Blog powered by NextJS" />
         <meta
